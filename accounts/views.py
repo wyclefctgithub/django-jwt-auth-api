@@ -5,7 +5,7 @@ from rest_framework import status
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from serializers import LoginSerializer
+from .serializers import LoginSerializer
 
 # Create your views here.
 
