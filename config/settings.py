@@ -55,6 +55,16 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": (
         "rest_framework.permissions.IsAuthenticated",
     ),
+
+    "DEFAULT_THROTTLE_CLASSES": [
+        "rest_framework.throttling.AnonRateThrottle",
+        "rest_framework.throttling.UserRateThrottle",
+    ],
+
+     "DEFAULT_THROTTLE_RATES": {
+        "anon": "10/min",
+        "user": "100/min",
+    },
 }
 
 
@@ -149,3 +159,25 @@ SIMPLE_JWT = {
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+EMAIL_HOST = "smtp.yourprovider.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "your@email.com"
+EMAIL_HOST_PASSWORD = "your-password"
+
+DEFAULT_FROM_EMAIL = "Your App <no-reply@yourapp.com>"
+
+INSTALLED_APPS += ["drf_spectacular"]
+
+REST_FRAMEWORK["DEFAULT_SCHEMA_CLASS"] = (
+    "drf_spectacular.openapi.AutoSchema"
+)
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Django JWT Auth API",
+    "DESCRIPTION": "Email-only JWT authentication system",
+    "VERSION": "1.0.0",
+}
