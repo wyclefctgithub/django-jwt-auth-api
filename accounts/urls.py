@@ -20,7 +20,7 @@ urlpatterns = [
     path(
         "verify/<uidb64>/<token>/",
         VerifyEmailView.as_view(),
-        name="verify-email",
+        name="verify",
     ),
     path("profile/", ProfileView.as_view(), name="profile"),
 ]

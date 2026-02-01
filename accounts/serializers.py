@@ -34,7 +34,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
         verify_url = request.build_absolute_uri(
             reverse(
-                "accounts_api:verify-email",
+                "accounts_api:verify",
                 args=[uid, token],
             )
         )
