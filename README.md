@@ -23,7 +23,7 @@ Production-ready authentication system using:
 ### 1. Clone & install
 ```bash
 git clone https://github.com/wyclefctgithub/django-jwt-auth-api.git
-cd yourrepo
+cd django-jwt-auth-api.git
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
